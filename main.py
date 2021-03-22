@@ -56,6 +56,26 @@ def main():
 
     for event in longpoll.listen():
             if event.type == VkBotEventType.MESSAGE_NEW:
+                if event.obj.message['text'].lower() == '!help':
+                    mes = '''List of commands:
+*!help* - command list
+*!qcs {name}* - general stats from Quake Champions
+*!wth {city}* - current weather
+*!trans/!text* - translation from {src} to {dest}
+*!change* - changing source/destination pair
+*!set_timer {time in hours} hours {time in minutes} minutes* - setting timer
+*!wikipage {title}* - showing first in search Wikipedia page
+*!wikilang {lang}* - changing Wikipedia language
+            \nOther funcs may be in dev
+                '''
+                    if event.from_user:
+                        vk.messages.send(user_id=event.obj.message['from_id'],
+                                        message=mes,
+                                        random_id=random.randint(0, 2 ** 64))
+                    elif event.from_chat:
+                        vk.messages.send(chat_id=event.chat_id,
+                                         message=mes,
+                                         random_id=random.randint(0, 2 ** 64))
                 if event.obj.message['text'].startswith('!trans'):
                     needtotr = event.obj.message['text'][6:]
                     translator = Translator()
