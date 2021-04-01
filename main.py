@@ -68,6 +68,7 @@ def main():
 *!wikilang {lang}* - changing Wikipedia language
             \nOther funcs may be in dev
                 '''
+                    vk = vk_session.get_api()
                     if event.from_user:
                         vk.messages.send(user_id=event.obj.message['from_id'],
                                         message=mes,
