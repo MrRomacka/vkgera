@@ -37,7 +37,7 @@ class QuakeReq():
 
 class WeatherReq():
     def __init__(self, city):
-        self.API = '2c6c62ecc0d20abf473f5b3274545e06'
+        self.API = 'Nah... Try your one'
         self.req = requests.get(f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={self.API}')
 
     def m_info(self):
@@ -51,7 +51,7 @@ class WeatherReq():
 
 
 def main():
-    vk_session = vk_api.VkApi(token='73605e91f75b2ad03574de6b62a0e9f8cf0def3eaad8e791b7f625c2f904c5d4e5e219b480baf49169619')
+    vk_session = vk_api.VkApi(token='Sorry, but...')
     longpoll = VkBotLongPoll(vk_session, 202300581)
 
     for event in longpoll.listen():
